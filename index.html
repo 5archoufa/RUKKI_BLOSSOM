@@ -29,7 +29,8 @@
 			style="margin: 0px;text-align: center; color: white; font-size: 34px; font-family: 'Montserrat', sans-serif;">
 		</p>
 		<button id="butt" onclick="IbUT()"
-			style="cursor:pointer; border-color: black; background-color: #a24ba4;height: 30px; width: 300px;margin-top: 30px;font-size: 20px; margin-left: auto; margin-right: auto; display: block; color: white;">CHEERS.</button>
+			style="cursor:pointer; border-color: black; background-color: #a24ba4;height: 30px; width: 300px;margin-top: 30px;font-size: 20px; margin-left: auto; margin-right: auto; display: block; color: white;">
+			Hez nawara.</button>
 
 		<script>
 			console.log("RUKK<3");
@@ -37,6 +38,7 @@
 			let counter = -1;
 			let req = new XMLHttpRequest();
 			document.getElementById('butt').style.display = 'none';
+			//document.getElementById('counterValue').style.display = 'none';
 
 			const alreadyResponded = document.cookie.split(';').find(cookie => cookie.trim().startsWith('alreadyResponded=true'));
 			console.log("previously responded = ", alreadyResponded);
@@ -45,8 +47,8 @@
 					let json = JSON.parse(req.responseText);
 					counter = json.value;
 					print();
-					if (!alreadyResponded)
-						document.getElementById('butt').style.display = 'block';
+					//if (!alreadyResponded)
+					document.getElementById('butt').style.display = 'block';
 				}
 			};
 
@@ -66,6 +68,7 @@
 						counter = json.record.value;
 						print();
 						document.cookie = 'alreadyResponded=true'; // Expires in one year				
+						//document.getElementById('counterValue').style.display = '';
 					}
 				};
 
@@ -82,8 +85,10 @@
 				document.getElementById('butt').style.display = 'none';
 			}
 
-			function print() {
-				document.getElementById('counterValue').textContent = counter + " people cheered 😳";
+			function print() /////////////////////////////////////////////<<<<<<<<<<<<<
+			{
+				const val = `${counter} nawara tnatchet 😳`;
+				document.getElementById('counterValue').textContent = val;
 			}
 		</script>
 		<script>
